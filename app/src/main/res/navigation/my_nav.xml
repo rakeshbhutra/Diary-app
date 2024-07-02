@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:name="androidx.navigation.fragment.NavHostFragment"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/listFragment">
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.example.mydiary.fragments.list.listFragment"
+        android:label="listFragment"
+        tools:layout="@layout/fragment_list">
+        <action
+            android:id="@+id/action_listFragment_to_addEntry"
+            app:destination="@id/addEntry" />
+        <action
+            android:id="@+id/action_listFragment_to_viewFragment"
+            app:destination="@id/viewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addEntry"
+        android:name="com.example.mydiary.fragments.add.AddEntryFragment"
+        android:label="fragment_add_entry"
+        tools:layout="@layout/fragment_add_entry" >
+        <action
+            android:id="@+id/action_addEntry_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewFragment"
+        android:name="com.example.mydiary.fragments.update.viewFragment"
+        android:label="fragment_view"
+        tools:layout="@layout/fragment_view" >
+        <action
+            android:id="@+id/action_viewFragment_to_updateFragment"
+            app:destination="@id/updateFragment" />
+        <action
+            android:id="@+id/action_viewFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+        <argument
+            android:name="currentItem"
+            app:argType="com.example.myapplication.data.Diary" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.example.mydiary.fragments.update.updateFragment"
+        android:label="fragment_update"
+        tools:layout="@layout/fragment_update" >
+        <action
+            android:id="@+id/action_updateFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+        <argument
+            android:name="currentItem"
+            app:argType="com.example.myapplication.data.Diary" />
+    </fragment>
+</navigation>
